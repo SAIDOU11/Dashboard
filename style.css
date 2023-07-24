@@ -53,3 +53,36 @@ div#crypto-top {
 div#crypto-top > span {
   margin-left: 0.6em;
 }
+
+button#get-location {
+  cursor: pointer;
+  padding: 1em;
+  margin: 1em;
+  border: 2px solid #2c2a2a;
+  text-shadow: 0px 0px 20px #2c2a2a;
+}
+
+button#get-location:hover,
+button#get-location:active {
+  background-color: #863d3d;
+}
+
+div#weather,
+div#img-temp,
+div#temp {
+  display: flex;
+}
+
+div#weather {
+  flex-direction: column;
+}
+
+div#img-temp {
+  flex-direction: row;
+  font-size: 1.7rem;
+}
+
+div#temp {
+  justify-content: center;
+  align-items: center;
+}
