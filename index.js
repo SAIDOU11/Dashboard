@@ -13,11 +13,36 @@ fetch(
     // Report the errror to some kind of service
   });
 
+const imgName = document.getElementById("crypto-top");
+const crypto = document.getElementById("crypto");
+
 fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
-  .then((res) => res.json())
+  .then((res) => {
+    if (!res.ok) {
+      throw Error("Something went wrong");
+    }
+    console.log(res.status);
+    console.log(res.ok);
+    return res.json();
+  })
   .then((data) => {
+    imgName.innerHTML = `
+    <img src=${data.image.small} alt="image dogecoin"/> 
+    <span>${data.name}</span>
+   
+     `;
+    crypto.innerHTML += `
+      <p>📌: ${data.market_data.current_price.eur}€</p>
+      <p>☝️: ${data.market_data.high_24h.eur}€</p>
+      <p>👎: ${data.market_data.low_24h.eur}€</p>
+     `;
     console.log(data);
   })
   .catch((err) => {
-    console.error(err, "erros throw here");
+    console.error(err);
   });
+
+// fetch("https://httpstat.us/404").then((res) => {
+//   console.log(res.status);
+//   console.log(res.ok);
+// });
