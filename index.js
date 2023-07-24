@@ -42,7 +42,25 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     console.error(err);
   });
 
-// fetch("https://httpstat.us/404").then((res) => {
-//   console.log(res.status);
-//   console.log(res.ok);
-// });
+// function getCurrentTime() {
+//   const date = new Date();
+//   let hourNow = date.toLocaleTimeString("fr-FR", { timeStyle: "short" });
+//   document.getElementById("time").innerHTML = hourNow;
+// }
+
+// setInterval(getCurrentTime, 1000);
+
+function findMyCoordinates() {
+  if (navigator.geolocation) {
+    console.log(
+      "?? ",
+      navigator.geolocation.getCurrentPosition((position) =>
+        console.log(position)
+      )
+    );
+  } else {
+    alert("Geolocalisation is not supported by your browser.");
+  }
+}
+
+findMyCoordinates();
